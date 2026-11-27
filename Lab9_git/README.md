@@ -216,4 +216,66 @@
 
 #### Branches & ff-merge
 
+**1. Создадим файл `greeting.txt`, проиндексируем его и закоммитим с сообщением "Add file greeting.txt"**
+
+![](./misc/ff-merge_1.png)
+
+**2. Добавим в этот файл слово "hello", индексируем и коммитим с текстом "Add content to greeting.txt"**
+
+![](./misc/ff-merge_2.png)
+
+**3-4. Создадим ветку с именем feature/uppercase и переключимся на нее**
+
+![](./misc/ff-merge_3-4.png)
+
+**5. `git status` показывает нам, что никаких изменений файлов, которые нужно закоммитить**
+
+![](./misc/ff-merge_5.png)
+
+**6-7. Отредактируем `greeting.txt`, чтобы он содержал приветствие в верхнем регистре "HELLO", добавим файл `greeting.txt` и закоммитим его**
+
+![](./misc/ff-merge_6-7.png)
+
+**8. Сейчас мы находимся на ветке feature/uppercase (можно проверить через `git branch`)**
+
+![](./misc/ff-merge_8.png)
+
+**9. Вывод команды `git log --oneline --graph --all` отображает полное дерево коммитов всех веток репозитория. Видно, что ветка feature/uppercase (на которую сейчас указывает HEAD) опережает ветку main на один коммит ("7be4606 Edit greeting.txt"), а также показано место ответвления параллельной ветки mybranch от общей истории коммитов.**
+
+![](./misc/ff-merge_9.png)
+
+**10. Переключимся на главную ветку main**
+
+![](./misc/ff-merge_10.png)
+
+**11. Используя cat, увидим содержимое файла `greetings.txt`**
+
+![](./misc/ff-merge_11.png)
+
 **12. По причине изолированности веток main и feature/uppercase могут иметь файлы с одинаковым названием, но с различным содержанием. Например, "greeting.txt" в ветке main содержит "hello", а в feature/uppercase - "HELLO". Для проверки можно воспользоваться командой `git diff main feature/uppercase`**
+
+![](./misc/ff-merge_12.png)
+
+**13. Объединим ветку feature/uppercase с main**
+
+![](./misc/ff-merge_13.png)
+
+**14. Используя cat, увидим содержимое файла `greetings.txt`**
+
+![](./misc/ff-merge_14.png)
+
+**15. Удалиv ветку с заглавными буквами (feature/uppercase)**
+
+![](./misc/ff-merge_15.png)
+
+**16. Смержить ветку mybranch в main**
+
+![](./misc/ff-merge_16.png)
+
+**17. `git log --oneline --graph --all` показывает, что коммит слияния b4a4534 (HEAD -> main) Merge branch 'mybranch' объединил историю ветки mybranch с главной веткой main. Изменения из ветки feature/uppercase (7be4606) включены в main, а сама метка feature/uppercase отсутствует на графе, так как ветка была удалена**
+
+![](./misc/ff-merge_17.png)
+
+**18. Запушим изменения ветки master на удаленный репозиторий**
+
+![](./misc/ff-merge_18.png)
