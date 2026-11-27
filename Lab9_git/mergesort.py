@@ -4,7 +4,7 @@ def merge_sort2(m):
   """Sort list, using two part merge sort"""
   if len(m) <= 1:
     return m
-
+  
   # Determine the pivot point
   middle = len(m) // 2
 
